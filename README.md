@@ -10,3 +10,4 @@
 4. To predict on test / unseen / new data
    - update the 'FILE_LOCATION'.'TEST_DATA' in config.yaml file under src folder to reflect the test data location.
    -  Run predict.py under src folder to generate predicted output in output folder as rishabh_gupta_predictions.pkl filename.
+   -  `predict.py`
