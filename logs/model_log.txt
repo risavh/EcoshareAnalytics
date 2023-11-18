@@ -1,0 +1,12 @@
+2023-11-18 22:30:20,639 :: INFO :: <module> :: 174         :: =========================================================
+2023-11-18 22:30:20,639 :: INFO :: <module> :: 175         :: Started ...
+2023-11-18 22:30:20,677 :: INFO :: <module> :: 179         :: Test Data Shape=(20328, 32)
+2023-11-18 22:30:20,706 :: INFO :: preprocessing_fxn :: 82         :: # Features=33 
+
+ Features=['tos_flg', 'disconotice_flg', 'oam_activelogin_cnt', 'term_length', 'called_numcalls_cnt', 'latefee_flg', 'dwelling_type_cd', 'curr_usage', 'product_type_cd', 'automatic_payment_flg', 'weblog_flg', 'risk_level', 'deposit_onhand_amt', 'ebill_enroll_flag', 'called_flg', 'oam_flg', 'sap_productname', 'numweblog_cnt', 'disconnects_flg', 'load_profile', 'city', 'zipcode', 'county', 'tdsp', 'dma', 'ev_driver', 'segment', 'OrderYear', 'OrderMonth', 'OrderDay', 'OrderDayOfYear', 'OrderDayOfWeek', 'IsWeekend']
+2023-11-18 22:30:20,727 :: INFO :: preprocessing_fxn :: 125         :: Num Columns=['oam_activelogin_cnt', 'term_length', 'called_numcalls_cnt', 'curr_usage', 'deposit_onhand_amt', 'sap_productname', 'numweblog_cnt', 'OrderYear', 'OrderDay', 'OrderDayOfYear', 'IsWeekend']
+
+ctgy columns: ['tos_flg', 'disconotice_flg', 'latefee_flg', 'dwelling_type_cd', 'product_type_cd', 'automatic_payment_flg', 'weblog_flg', 'risk_level', 'ebill_enroll_flag', 'called_flg', 'oam_flg', 'disconnects_flg', 'load_profile', 'city', 'zipcode', 'county', 'tdsp', 'dma', 'ev_driver', 'segment', 'OrderMonth', 'OrderDayOfWeek']
+2023-11-18 22:30:21,566 :: INFO :: preprocessing_fxn :: 145         :: Final features Shape=(20328, 33)
+2023-11-18 22:30:21,749 :: INFO :: gen_predictions :: 158         :: Final Output Shape=(20328, 1)
+2023-11-18 22:30:21,750 :: INFO :: <module> :: 186         :: Total Time Taken=1 seconds

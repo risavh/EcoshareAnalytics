@@ -1,0 +1,9 @@
+---
+
+FILE_LOCATION:
+  TRAIN_DATA: "../data/data_rev3.csv"
+  TEST_DATA: "../data/ecoshare_sales_test.csv"
+  LOG_FILENAME: "../logs/model_log.txt"
+  UTILS_FUNCTION_PATH: "../utils"
+  MODEL_FILENAME: "../model/ecoshare_xgb_v1.pkl"
+  OUTPUT_FILENAME: "../output/rishabh_gupta_predictions.pkl"
