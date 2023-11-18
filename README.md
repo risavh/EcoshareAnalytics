@@ -3,7 +3,7 @@
 
 ## Project Setup Instructions
 
-1. Clone this repository: `git clone <repository-url>`
+1. Clone this repository: `git clone https://github.com/risavh/EcoshareAnalytics.git`
 2. Create and activate a virtual environment:
    - Virtualenv: `python -m venv venv` and `source venv/bin/activate`
 3. Install project dependencies: `pip install -r requirements.txt`
