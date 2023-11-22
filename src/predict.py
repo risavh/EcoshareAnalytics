@@ -17,7 +17,18 @@ warnings.filterwarnings("ignore")
 
 
 def read_config():
-    """reads config files and returns input params as a nested dictionary"""
+    """
+    Reads configuration settings from a YAML file.
+
+    This function opens and reads a 'config.yaml' file, converting its contents
+    into a nested dictionary which represents the configuration settings.
+
+    Returns:
+    - dict: A dictionary containing configuration settings.
+
+    Note:
+    - Requires 'yaml' module to parse the YAML file.
+    """
     with open("config.yaml") as f:
         data = yaml.load(f, Loader=yaml.FullLoader)
         # print(data)
@@ -26,6 +37,19 @@ def read_config():
 
 
 def apply_label_encoders(data, columns):
+    """
+        Applies label encoding to specified columns in a DataFrame.
+
+        Parameters:
+        - data (pd.DataFrame): DataFrame with data to encode.
+        - columns (list of str): Column names to be encoded.
+
+        Returns:
+        - pd.DataFrame: DataFrame with encoded columns.
+
+        The function assumes label encoders are saved in '.pkl' files and
+        requires 'pickle', 'numpy', 'os', and a global 'config_dict'.
+        """
     encoded_data = data.copy()
     for column in columns:
         label_enc_filename = os.path.join(config_dict["FILE_LOCATION"]["UTILS_FUNCTION_PATH"],f'label_encoder_{column}.pkl')
@@ -35,6 +59,26 @@ def apply_label_encoders(data, columns):
     return encoded_data
 
 def preprocessing_fxn(df):
+    """
+        Performs preprocessing on the input DataFrame.
+
+        This includes:
+        - Converting 'order_day' to datetime.
+        - Dropping certain columns.
+        - Frequency encoding and category mapping.
+        - Filling missing values and converting data types.
+        - Applying label encoding and Min-Max scaling.
+
+        Parameters:
+        - df (pd.DataFrame): Input DataFrame to preprocess.
+
+        Returns:
+        - pd.DataFrame: Preprocessed DataFrame ready for machine learning models.
+
+        Note:
+        - Requires external files for mappings and scalers.
+        - Assumes 'config_dict' is predefined with file paths.
+        """
     df.order_day = pd.to_datetime(df.order_day, format='%Y-%m-%d')
     ## Drop home_value & Pool
     ## Frency encoding sap_prdocutname
@@ -148,7 +192,24 @@ def preprocessing_fxn(df):
 
 
 def gen_predictions(features):
+    """
+        Generates predictions using a pre-trained XGBoost model.
 
+        The function loads an XGBoost model from a file, specified in a global
+        'config_dict', and uses it to predict probabilities based on the provided
+        features.
+
+        Parameters:
+        - features (pd.DataFrame): A DataFrame containing features for prediction.
+
+        Outputs:
+        - Saves the predictions to a file specified in 'config_dict'.
+        - Logs the shape of the output DataFrame.
+
+        Note:
+        - Requires 'pickle' for loading the model and 'pandas'.
+        - Assumes 'config_dict' with model and output file paths is predefined.
+        """
 
     ##load
     xgb_model_loaded = pickle.load(open(config_dict["FILE_LOCATION"]["MODEL_FILENAME"], "rb"))
